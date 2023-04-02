@@ -1,3 +1,5 @@
+#pragma once
+
 #include "securities.h"
 
 securities::securities()
@@ -8,7 +10,7 @@ securities::securities()
 	get_year = 0;
 }
 
-double securities::calculateCost() {}
+double securities::calculateCost() { return 0; }
 securities::~securities() {}
 void securities::modifyInfos() {}
 void securities::writeSec(ofstream& tempF) {}

@@ -1,1 +1,0 @@
-Securities Portfolio Management System

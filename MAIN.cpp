@@ -49,7 +49,7 @@ void cancel_portfolio(vector<portfolio *> &);
 
 void change_infoMENU(vector<portfolio *> &);
 void change_portfolio(vector<portfolio *> &, int &);
-void change_sec(vector<portfolio *> &, int &);
+void change_sec(vector<portfolio *> &p, int &);
 
 void analytics(vector<portfolio *> &);
 vector<int> analytics_1(vector<portfolio *> &);
@@ -142,7 +142,7 @@ void menu2(vector <portfolio *> &p, int &pos)
 void add_portfolio(vector<portfolio *> &p)
 {
 	string text = ".txt";
-	string fName = "portfolio_";
+	string fName = "Portfolios/portfolio_";
 	string Pname, Paddress, Pno, Pafm, pc = to_string(portfolio_counter);
     char ch;
     bool ok = false;
@@ -183,7 +183,7 @@ void add_portfolio(vector<portfolio *> &p)
                                  writeFile(p, tempPOS);
                                  cout << n << "Portfolio saved successfully.." << n << n;
 								 ok = true;
-								 if(fName == "portfolio_1.txt")
+								 if(fName == "Portfolios/portfolio_1.txt")
 								 {
 								 	cls;
 									cout << "Please restart the program." << n << n;
@@ -195,7 +195,7 @@ void add_portfolio(vector<portfolio *> &p)
 		                    	}
 		    case 'B':case 'b': {
 		                         ok = true ;
-								 if(fName == "portfolio_1.txt")
+								 if(fName == "Portfolios/portfolio_1.txt")
 								 	exit(-1);
 								 else
 									 menu1(p); 
@@ -869,10 +869,10 @@ void exit_(vector<portfolio *> &p)
            {
              cls;
              cout << n << "   Copyright (C) 2018 Mert Aga" << n;
-             cout << "   agaamert@outlook.com || cs171001@teiath.gr" << n << n;
+             cout << "     agaamert@outlook.com" << n << n;
              cout << "     University of West Attica" << n;
 			 cout << "     Faculty of Engineering" << n ;
-			 cout << "     Computer Science and Engineering" << n << n;
+			 cout << "     Informatic and Computer Engineering" << n << n;
 			 cout << "     C++ || Object Oriented Programming Final Project 2018\n\n\n\n";
 			 system("pause");
 			 ok = true;
@@ -918,7 +918,7 @@ void writeFile(vector<portfolio *> &p, int &pos)
       
        wf << p[pos]->name << "|" << p[pos]->address << "|" << p[pos]->no << "|" << p[pos]->afm << "|" << p[pos]->type << n ;
        
-         for(int i; i < p[pos]->secV.size(); i++)
+         for(int i = 0; i < p[pos]->secV.size(); i++)
          {
          	p[pos]->secV[i]->writeSec(wf);
 		 }
@@ -931,7 +931,7 @@ void writeFile(vector<portfolio *> &p, int &pos)
 vector<portfolio *> readCustomers()
 {
     string text = ".txt";
-	string fName = "portfolio_", pc, buf1, buf2;
+	string fName = "Portfolios/portfolio_", pc, buf1, buf2;
    	bool ok = false;
       bool ok2 = false;
    	char BUF1[256], ch;
@@ -951,7 +951,7 @@ vector<portfolio *> readCustomers()
             {
                 int tempPC = portfolio_counter; // [GR] Κάνω 2ο έλεγχο για σιγουρία (πχ. Μπορεί να έχει καταστραφεί για κάποιο λόγο το portfolio_2.txt όμως να έχουμε portfolio_3.txt)
 				string tempSTR = to_string(tempPC++);
-				fName = "portfolio_";
+				fName = "Portfolios/portfolio_";
                 fName = add(add(fName, tempSTR), text);
                    ifstream temp;
                    temp.open(fName.c_str());
@@ -1030,7 +1030,7 @@ vector<portfolio *> readCustomers()
 		}
              pf.close();
              buf1 = buf2 = "";
-             fName = "portfolio_";
+             fName = "Portfolios/portfolio_";
       }
 	
    return p;

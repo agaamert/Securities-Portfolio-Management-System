@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -10,7 +12,7 @@
 
 using namespace std;
 
-class bonds :public securities
+class bonds : public securities
 {
 public:
 	int ex_year;

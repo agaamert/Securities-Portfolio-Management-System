@@ -1,5 +1,11 @@
 #include "portfolio.h"
-#include "MAIN.cpp"
+
+template <class A>
+A add(A a, A b)
+{
+	A temp = a + b;
+	return temp;
+}
 
 double portfolio::calculateCost()
 {
