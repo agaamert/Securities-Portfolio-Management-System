@@ -2,6 +2,16 @@
 
 This project was implemented as a final project for the course "Object-Oriented Programming in C++" at the University of West Attica in 2018. The purpose of the project is to develop a software system for recording a portfolio of securities, including stocks and bonds. The system will be used by employees of a brokerage company to record the different types of securities held by its clients and to calculate the charges that the company imposes on them.
 
+## Overview
+
+The Securities Portfolio Management System is a command-line program that allows users to manage their portfolios and securities accounts. The program stores portfolio data in separate files, which are specified using a global variable (portfolio_counter). The first line of each file contains the client's data, followed by information on their securities.
+
+In the event that a file cannot be opened or read, the getInfo() function provides the user with instructions on how to check the file's format. If no portfolios exist, the user can create a new portfolio and continue using the system.
+
+All customer data is stored in a common vector, as well as their securities. Changes to portfolios and securities accounts are saved simultaneously to the client's file.
+
+If a portfolio is marked as invalid, it is displayed with a message indicating that it is cancelled. However, the total cost of its securities is still factored into calculations.
+
 ## Information Model
 
 A client's portfolio consists of a set of securities, which can be either stocks or bonds. Each portfolio contains the following information:
